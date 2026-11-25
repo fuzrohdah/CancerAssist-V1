@@ -100,10 +100,10 @@ elif query == "chat":
     """, unsafe_allow_html=True)
 
 
-    st.image(r"C:\Users\haris\OneDrive\Desktop\AI\Projects\Chatbot-RAG\final-pipeline.png", caption="RAG Pipeline", use_container_width=True)
+    st.image("final-RAG-pipeline.png", caption="RAG Pipeline", use_container_width=True)
 
     embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-    vectorstore = FAISS.load_local(r"C:\Users\haris\OneDrive\Desktop\AI\Projects\Chatbot-RAG\faiss_index", embedding, allow_dangerous_deserialization=True)
+    vectorstore = FAISS.load_local("faiss_index", embedding, allow_dangerous_deserialization=True)
     llm = ChatOllama(model="mistral")
 
     system_prompt = (
@@ -194,7 +194,7 @@ elif query == "image":
 
     
     
-    st.image(r"C:\Users\haris\OneDrive\Desktop\AI\Projects\Chatbot-RAG\Basic-CNN-Architecture.png", caption="Basic CNN Architecture", use_container_width=True)
+    st.image("Basic-CNN-Architecture.png", caption="Basic CNN Architecture", use_container_width=True)
 
     st.markdown("Upload a dermoscopic image to check if it's likely **benign** or **malignant**:")
 
@@ -243,7 +243,7 @@ elif query == "brca":
     import matplotlib.pyplot as plt
 
     # Load trained model
-    model = joblib.load(r"C:\Users\haris\OneDrive\Desktop\AI\Projects\OncoTypeBC\rf_model.pkl")
+    model = joblib.load("rf_model.pkl")
 
     # App header
     
@@ -290,7 +290,7 @@ elif query == "brca":
 
     # Workflow image
     st.markdown("**Project Workflow:**")
-    st.image(r"C:\Users\haris\OneDrive\Desktop\AI\Projects\OncoTypeBC\flowchart.png", caption="Fig. Project Workflow", use_container_width=True)
+    st.image("flowchart.png", caption="Fig. Project Workflow", use_container_width=True)
 
     # Pipeline
     st.markdown("""
@@ -304,7 +304,7 @@ elif query == "brca":
     """)
 
     # Load and visualize training data
-    merged_df = pd.read_csv(r"C:\Users\haris\OneDrive\Desktop\AI\Projects\OncoTypeBC\final_merged_df.csv", sep=",")
+    merged_df = pd.read_csv("final_merged_df.csv", sep=",")
     st.subheader("Exploratory Overview of Training Data")
 
     st.markdown("**BRCA Subtype Distribution:**")
